@@ -18,6 +18,8 @@ import EpisodeComponent from './components/EpisodeComponent.vue';
 import SeriesTvComponent from './components/SeriesTvComponent.vue';
 import RegisterComponent from './components/RegisterComponent.vue';
 import NotFoundComponent from './components/NotFoundComponent.vue';
+
+
 const routes = [
     {
         path: '/',
@@ -53,8 +55,7 @@ const routes = [
         name: 'Notfound',
         path: "*",
         component: NotFoundComponent,
-    }
-
+    },
 ];
 
 
@@ -77,6 +78,7 @@ router.beforeEach((to, from, next) => {
     }
     next()
 });
+
 router.afterEach((to, from, next) => {
     NProgress.done()
 

@@ -14,8 +14,10 @@
 
 
 Auth::routes();
+
 Route::post('/vueLogin', 'Auth\LoginController@vueLogin');
 Route::post('/registerUser','VueController@register');
+
 Route::prefix('json')->name('json.')->group(static function() {
     Route::post('UserAuth', [
         'as' => 'get.user',
@@ -47,7 +49,6 @@ Route::prefix('json')->name('json.')->group(static function() {
     ]);
 
 });
-
 
 Route::get('/{any}', function () {
     return view('welcome');
