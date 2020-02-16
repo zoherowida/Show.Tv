@@ -69,7 +69,7 @@
                         this.caseUser = response.data.data.caseUser;
                     }
                 }).catch(function (error) {
-                    console.log(error);
+                    alert('Please Login for Like Episode');
                 });
             }
         },

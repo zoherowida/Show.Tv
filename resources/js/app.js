@@ -58,6 +58,7 @@ const routes = [
 ];
 
 
+
 const router = new VueRouter({ mode: 'history', routes: routes});
 
 router.beforeEach((to, from, next) => {
@@ -82,3 +83,4 @@ router.afterEach((to, from, next) => {
 });
 
 const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+

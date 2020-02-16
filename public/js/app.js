@@ -2099,7 +2099,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.caseUser = response.data.data.caseUser;
         }
       })["catch"](function (error) {
-        console.log(error);
+        alert('Please Login for Like Episode');
       });
     }
   },
@@ -2451,13 +2451,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['id'],
   data: function data() {
     return {
       Episodes: [],
       countFollow: 0,
-      caseUser: 0
+      caseUser: 0,
+      Error: false
     };
   },
   watch: {
@@ -2475,9 +2479,14 @@ __webpack_require__.r(__webpack_exports__);
         id: this.$route.params.id
       }).then(function (response) {
         if (response.data.result === 1) {
+          _this.Error = false;
           _this.Episodes = response.data.data.episodes;
           _this.countFollow = response.data.data.count;
           _this.caseUser = response.data.data.caseUser;
+
+          if (_this.Episodes.length == 0) {
+            _this.Error = true;
+          }
         } else {
           self.$router.push('/');
         }
@@ -2497,7 +2506,7 @@ __webpack_require__.r(__webpack_exports__);
           _this2.caseUser = response.data.data.caseUser;
         }
       })["catch"](function (error) {
-        console.log(error);
+        alert('Please Login for Follow Series TV');
       });
     }
   },
@@ -39518,6 +39527,12 @@ var render = function() {
         ]
       )
     ]),
+    _vm._v(" "),
+    _vm.Error
+      ? _c("div", { staticStyle: { "text-align": "center" } }, [
+          _c("h3", [_vm._v("There are no episodes")])
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
